@@ -1,0 +1,2 @@
+# Glossauro
+Projeto
