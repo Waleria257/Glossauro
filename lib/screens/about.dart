@@ -12,7 +12,14 @@ class About extends StatelessWidget {
                     fontFamily: 'Slackey')),
             centerTitle: true,
             backgroundColor: Colors.brown),
-      body: Center(
+      body: Stack(
+      children: <Widget>[
+          Image.asset(
+              "images/Dino1.jpg",
+              fit: BoxFit.cover,
+              height: 1000.0,
+            ),
+          Center(
         child: RaisedButton(
           onPressed: () {
             Navigator.pop(context);
@@ -21,6 +28,11 @@ class About extends StatelessWidget {
           
           )
       ),
+      ]
+      
+      ) 
+      
+     
     );
   }
 }
