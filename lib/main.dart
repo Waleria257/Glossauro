@@ -24,8 +24,8 @@ class _HomeState extends State<Home> {
               fit: BoxFit.cover,
               height: 1000.0,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+            ListView(
+              padding: const EdgeInsets.all(8),
               children: <Widget>[
                 Container(
                     padding: EdgeInsets.fromLTRB(20.0, 100.0, 20.0, 0.0),
@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
                             fontFamily: 'Slackey'),
                       ),
                       color: Colors.brown,
-                    ))
+                    )),
               ],
             )
           ],
