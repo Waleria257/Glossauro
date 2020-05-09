@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/about.dart';
+import 'screens/quiz.dart';
+import 'screens/score.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -31,7 +33,11 @@ class _HomeState extends State<Home> {
                 Container(
                     padding: EdgeInsets.fromLTRB(20.0, 100.0, 20.0, 0.0),
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Quiz()),);
+                        },
                       child: Text(
                         "Quiz",
                         style: TextStyle(
@@ -44,7 +50,11 @@ class _HomeState extends State<Home> {
                 Container(
                     padding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0.0),
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Score()),);
+                        },
                       child: Text(
                         "Pontuação",
                         style: TextStyle(
