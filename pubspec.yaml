@@ -27,6 +27,7 @@ dependencies:
   # firebase_auth: ^0.15.3+1
   # google_sign_in: ^4.1.1
   cloud_firestore: ^0.13.0+1
+  url_launcher: ^5.4.2
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +63,9 @@ flutter:
    - images/Dino2.jpg
    - images/Dino3.jpg
    - images/Dino5.jpg
+   - images/logo1.png
+   - images/logo2.png
+   - images/logo3.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
