@@ -64,6 +64,8 @@ flutter:
    - images/Dino3.jpg
    - images/Dino5.jpg
    - images/logo1.png
+   - images/logo1.5.png
+   - images/logo1.75.png
    - images/logo2.png
    - images/logo3.png
   # The following line ensures that the Material Icons font is

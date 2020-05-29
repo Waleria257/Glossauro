@@ -26,32 +26,45 @@ class About extends StatelessWidget {
               Container(
                 child:
               Image.asset(
-              "images/logo1.png",
+              "images/logo3.png",
               height: 200.0,
             ),
             
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-
-                child: RaisedButton(
-                  onPressed: _launchURL,
-                 child: 
+                padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
+                child: 
                   Text(
-                  "Esse aplicativo foi desenvolvido por alunos do curso de Engenharia de Computação da USF Itatiba sob a orientação do professor José Matias Lemes filho com o intuito de introduzir tecnologias de mercado como: Flutter, Firebase e o sistema de controle de versões GIT",
-                  style: TextStyle(
-                    fontSize: 25.0,
-                    color: Colors.green[400],
-                    fontFamily: 'LuckiestGuy'
+                    "Esse aplicativo foi desenvolvido por alunos do curso de Engenharia de Computação da USF Itatiba sob a orientação do professor José Matias Lemes filho com o intuito de introduzir tecnologias de mercado como: Flutter, Firebase e o sistema de controle de versões GIT",
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: Colors.green[400],
+                      fontFamily: 'LuckiestGuy'
                       ),
-                  textAlign: TextAlign.left
+                      textAlign: TextAlign.center,
                     ),
-                  color: Colors.brown,
-                )
+                    color: Colors.brown,
+                
                 
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(28.0, 75.0, 28.0, 0.0),
+                padding: EdgeInsets.fromLTRB(65.0, 10.0, 65.0, 0.0),
+                child: RaisedButton(
+                  onPressed: _launchURL,
+                  child: Text(
+                        "GitHub",
+                        style: TextStyle(
+                            fontSize: 30.0,
+                            color: Colors.green[400],
+                            fontFamily: 'Slackey'),
+                      ),
+                  color: Colors.brown,
+          
+              )
+            ),
+              
+              Container(
+                padding: EdgeInsets.fromLTRB(28.0, 43.5, 28.0, 0.0),
                 child: RaisedButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -67,6 +80,7 @@ class About extends StatelessWidget {
           
               )
             ),
+            
           ]
         )
 
