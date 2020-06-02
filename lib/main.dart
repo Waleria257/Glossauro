@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/about.dart';
 import 'screens/quiz.dart';
 import 'screens/score.dart';
+import 'screens/result.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -81,7 +82,27 @@ class _HomeState extends State<Home> {
                             fontFamily: 'Slackey'),
                       ),
                       color: Colors.brown,
-                    )),
+                    )
+                ),
+                Container(
+                    padding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0.0),
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Result()),);
+                        },
+                        
+                      child: Text(
+                        "Resultado(Teste)",
+                        style: TextStyle(
+                            fontSize: 30.0,
+                            color: Colors.green[400],
+                            fontFamily: 'Slackey'),
+                      ),
+                      color: Colors.brown,
+                    )
+                ),
               ],
             )
           ],

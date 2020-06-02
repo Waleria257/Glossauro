@@ -68,6 +68,13 @@ flutter:
    - images/logo1.75.png
    - images/logo2.png
    - images/logo3.png
+   - images/DinoScore.jpg
+   - images/DinoBronze.jpg 
+   - images/DinoSilver.jpg 
+   - images/DinoSad.jpg 
+   - images/Dinohappy.jpg 
+
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Score extends StatelessWidget {
-  int _pont = 50;
+class Result extends StatelessWidget {
+  String _infoText = "Você acertou";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-            title: Text("Pontuação",
+            title: Text("$_infoText",
                 style: TextStyle(
                     color: Colors.green[400],
                     fontSize: 35.0,
@@ -25,10 +25,10 @@ class Score extends StatelessWidget {
                Center(
                 child: 
                   Text(
-                    "\nScore\n$_pont",
+                    "\nParabéns!!!",
                     style: TextStyle(
                       fontSize: 50.0,
-                      color: Colors.brown,
+                      color: Colors.black,
                       fontFamily: 'LuckiestGuy'
                       ),
                       textAlign: TextAlign.center,
@@ -37,29 +37,32 @@ class Score extends StatelessWidget {
               Container(
                 child:
                   Image.asset(
-                  "images/DinoSilver.jpg",
+                  "images/Dinohappy.jpg",
                   height: 300.0,
                   ),
               ),
-              Container(
-                child: 
-                  Text(
-                    "Silver Medal",
-                    style: TextStyle(
-                      fontSize: 43.8,
-                      color: Colors.black,
-                      fontFamily: 'BungeeShade'
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  color: Colors.grey[400],
-              ),
 
               
-             
+             Container(
+                padding: EdgeInsets.fromLTRB(28.0, 43.5, 28.0, 0.0),
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                        "Tentar novamente",
+                        style: TextStyle(
+                            fontSize: 25.0,
+                            color: Colors.green[400],
+                            fontFamily: 'Slackey'),
+                      ),
+                  color: Colors.brown,
+          
+              )
+            ),
 
               Container(
-                padding: EdgeInsets.fromLTRB(28.0, 43.5, 28.0, 0.0),
+                padding: EdgeInsets.fromLTRB(28.0, 5.5, 28.0, 0.0),
                 child: RaisedButton(
                   onPressed: () {
                     Navigator.pop(context);
