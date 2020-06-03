@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Result extends StatelessWidget {
+
+class Result extends StatefulWidget {
+  @override
+  ResultState createState() {
+    return ResultState();
+  }
+}
+
+class ResultState extends State<Result> {
   String _infoText = "Você acertou";
   @override
   Widget build(BuildContext context) {
@@ -10,7 +18,9 @@ class Result extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.green[400],
                     fontSize: 35.0,
-                    fontFamily: 'Slackey')),
+                    fontFamily: 'Slackey',
+                    )
+                  ),
             centerTitle: true,
             backgroundColor: Colors.brown),
       body: Stack(
