@@ -4,6 +4,10 @@ import 'screens/quiz.dart';
 import 'screens/score.dart';
 import 'screens/result.dart';
 
+import 'bloc/question_repository.dart';
+import 'bloc/question_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -37,7 +41,15 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Quiz()),);
+                            MaterialPageRoute(builder: (context) {
+                              return RepositoryProvider<QuestionRepository> (
+                                create: (context) => QuestionRepositoryFirebase()..refresh(),
+                                child: BlocProvider(
+                                  create: (context) => QuestionBloc(RepositoryProvider.of(context)),
+                                  child: Quiz(),
+                                )
+                              );
+                            }));
                         },
                       child: Text(
                         "Quiz",
