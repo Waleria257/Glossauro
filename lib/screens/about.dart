@@ -9,7 +9,7 @@ class About extends StatelessWidget {
             title: Text("Sobre o App",
                 style: TextStyle(
                     color: Colors.green[400],
-                    fontSize: 35.0,
+                    fontSize: 25.0,
                     fontFamily: 'Slackey')),
             centerTitle: true,
             backgroundColor: Colors.brown),
@@ -25,11 +25,10 @@ class About extends StatelessWidget {
             children: <Widget>[
               Container(
                 child:
-              Image.asset(
-              "images/logo3.png",
-              height: 200.0,
-            ),
-            
+                  Image.asset(
+                  "images/logo3.png",
+                  height: 200.0,
+                  ),
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
@@ -43,8 +42,12 @@ class About extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    color: Colors.brown,
-                
+                    
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60.0),
+                  border: Border.all(color: Colors.brown),
+                  color: Colors.brown,
+                    ),
                 
               ),
               Container(
@@ -59,12 +62,15 @@ class About extends StatelessWidget {
                             fontFamily: 'Slackey'),
                       ),
                   color: Colors.brown,
+                  shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
           
               )
             ),
               
               Container(
-                padding: EdgeInsets.fromLTRB(28.0, 43.5, 28.0, 0.0),
+                padding: EdgeInsets.fromLTRB(28.0, 5.5, 28.0, 0.0),
                 child: RaisedButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -77,6 +83,9 @@ class About extends StatelessWidget {
                             fontFamily: 'Slackey'),
                       ),
                   color: Colors.brown,
+                  shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
           
               )
             ),
@@ -100,3 +109,5 @@ _launchURL() async {
     throw 'Could not launch $url';
   }
 }
+
+  

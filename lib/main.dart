@@ -49,7 +49,9 @@ class _HomeState extends State<Home> {
                                   child: Quiz(),
                                 )
                               );
-                            }));
+                            }
+                            )
+                            );
                         },
                       child: Text(
                         "Quiz",
@@ -59,7 +61,11 @@ class _HomeState extends State<Home> {
                             fontFamily: 'Slackey'),
                       ),
                       color: Colors.brown,
-                    )),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                    ),
+                ),
                 Container(
                     padding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0.0),
                     child: RaisedButton(
@@ -76,6 +82,9 @@ class _HomeState extends State<Home> {
                             fontFamily: 'Slackey'),
                       ),
                       color: Colors.brown,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
                     )),
                 Container(
                     padding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0.0),
@@ -94,6 +103,9 @@ class _HomeState extends State<Home> {
                             fontFamily: 'Slackey'),
                       ),
                       color: Colors.brown,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
                     )
                 ),
                 Container(
