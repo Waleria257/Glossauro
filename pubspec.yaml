@@ -73,6 +73,7 @@ flutter:
    - images/DinoSilver.jpg 
    - images/DinoSad.jpg 
    - images/Dinohappy.jpg 
+   - images/DinoMenu.png
 
 
   # The following line ensures that the Material Icons font is
