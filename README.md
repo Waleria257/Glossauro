@@ -1,4 +1,4 @@
-# Projeto Glossauro (título e breve descrição do projeto)
+# ![tema](https://github.com/Waleria257/Glossauro/blob/master/tema.PNG)
 ## Um jogo de perguntas sobre dinossauro.
 ![gif dino](https://github.com/Waleria257/Glossauro/blob/master/08605a2cf4cce0f80b644241b5224bc8.gif)
 ### Pré-requisitos
