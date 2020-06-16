@@ -57,7 +57,7 @@ class QuizState extends State<Quiz> {
                 child: Text(
                   "Questão 1",
                   style: TextStyle(
-                      color: Colors.green[400],
+                      color: Colors.green,
                       fontSize: 25.0,
                       fontFamily: 'Slackey'),
                   textAlign: TextAlign.center,
@@ -65,20 +65,20 @@ class QuizState extends State<Quiz> {
                 color: Colors.brown,
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
+                padding: EdgeInsets.fromLTRB(10.0, 150.0, 10.0, 150.0),
                 child: Text(
                   // ### enunciado ###
                   data.data.last.body,
                   style: TextStyle(
                       fontSize: 25.0,
-                      color: Colors.green[400],
+                      color: Colors.white,
                       fontFamily: 'LuckiestGuy'),
                   textAlign: TextAlign.center
                 ),
                 color: Colors.brown,
               ),
               Container(
-                  padding: EdgeInsets.fromLTRB(28.0, 5.0, 28.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(28.0, 10.0, 28.0, 0.0),
                   child: RaisedButton(
                     onPressed: () => this.verifyAnswer(data.data.last.options[0]),
                     child: Text(
@@ -90,9 +90,12 @@ class QuizState extends State<Quiz> {
                           fontFamily: 'Slackey'),
                     ),
                     color: Colors.brown,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
                   )),
               Container(
-                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(28.0, 10.0, 28.0, 0.0),
                   child: RaisedButton(
                     onPressed: () => this.verifyAnswer(data.data.last.options[1]),
                     child: Text(
@@ -104,9 +107,12 @@ class QuizState extends State<Quiz> {
                           fontFamily: 'Slackey'),
                     ),
                     color: Colors.brown,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
                   )),
               Container(
-                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(28.0, 10.0, 28.0, 0.0),
                   child: RaisedButton(
                     onPressed: () => this.verifyAnswer(data.data.last.options[2]),
                     child: Text(
@@ -118,20 +124,11 @@ class QuizState extends State<Quiz> {
                           fontFamily: 'Slackey'),
                     ),
                     color: Colors.brown,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
                   )),
-              Container(
-                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
-                  child: RaisedButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: Text(
-                      "Menu inicial",
-                      style: TextStyle(
-                          fontSize: 30.0,
-                          color: Colors.green[400],
-                          fontFamily: 'Slackey'),
-                    ),
-                    color: Colors.brown,
-                  )),
+             
             ],
           );
               } else {

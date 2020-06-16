@@ -23,12 +23,17 @@ class About extends StatelessWidget {
           ListView(
             
             children: <Widget>[
-              Container(
+              GestureDetector(
+                child:Container(
                 child:
                   Image.asset(
                   "images/logo3.png",
                   height: 200.0,
                   ),
+              ),
+                onTap: (){
+                  _launchURL2();
+                },
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
@@ -37,7 +42,7 @@ class About extends StatelessWidget {
                     "Esse aplicativo foi desenvolvido por alunos do curso de Engenharia de Computação da USF Itatiba sob a orientação do professor José Matias Lemes filho com o intuito de introduzir tecnologias de mercado como: Flutter, Firebase e o sistema de controle de versões GIT",
                     style: TextStyle(
                       fontSize: 25.0,
-                      color: Colors.green[400],
+                      color: Colors.white,
                       fontFamily: 'LuckiestGuy'
                       ),
                       textAlign: TextAlign.center,
@@ -110,4 +115,11 @@ _launchURL() async {
   }
 }
 
-  
+_launchURL2() async {
+  const url2 = 'https://www.usf.edu.br';
+  if (await canLaunch(url2)) {
+    await launch(url2);
+  } else {
+    throw 'Could not launch $url2';
+  }
+}
