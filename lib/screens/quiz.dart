@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:layout_glossauro/bloc/question_bloc.dart';
+import 'package:layout_glossauro/bloc/question_events.dart';
 import 'package:layout_glossauro/bloc/question_state.dart';
 
 class Quiz extends StatefulWidget {
@@ -21,6 +22,11 @@ class QuizState extends State<Quiz> {
   void dispose() {
     bloc.close();
     super.dispose();
+  }
+
+  void verifyAnswer(Object alternative) {
+    bloc.add(NewQuestionEvent());
+    print("sucesso");
   }
 
   @override
@@ -44,9 +50,7 @@ class QuizState extends State<Quiz> {
             BlocBuilder (
             bloc: bloc,
             builder: (context, data) {
-              if (data is QuestionLoadingState) {
-                return CircularProgressIndicator();
-              } else if (data is QuestionHasDataState) {
+              if (data is QuestionHasDataState) {
                 return ListView(
             children: <Widget>[
               Container(
@@ -63,8 +67,8 @@ class QuizState extends State<Quiz> {
               Container(
                 padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
                 child: Text(
+                  // ### enunciado ###
                   data.data.last.body,
-                  // 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed sem tincidunt, porta mauris id, pulvinar felis. Cras dictum tristique aliquet. Morbi commodo sapien posuere tincidunt laoreet. Nullam id orci non nibh efficitur mattis nec non libero. Nulla nec suscipit justo, at ornare massa. Morbi vehicula mi ut est eleifend, quis ultricies magna consectetur. ',
                   style: TextStyle(
                       fontSize: 25.0,
                       color: Colors.green[400],
@@ -76,67 +80,49 @@ class QuizState extends State<Quiz> {
               Container(
                   padding: EdgeInsets.fromLTRB(28.0, 5.0, 28.0, 0.0),
                   child: RaisedButton(
+                    onPressed: () => this.verifyAnswer(data.data.last.options[0]),
+                    child: Text(
+                      // ### alternativa A ###
+                      data.data.last.options[0]['texto'],
+                      style: TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.green[400],
+                          fontFamily: 'Slackey'),
+                    ),
+                    color: Colors.brown,
+                  )),
+              Container(
+                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
+                  child: RaisedButton(
+                    onPressed: () => this.verifyAnswer(data.data.last.options[1]),
+                    child: Text(
+                      // ### alternativa B ###
+                      data.data.last.options[1]['texto'],
+                      style: TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.green[400],
+                          fontFamily: 'Slackey'),
+                    ),
+                    color: Colors.brown,
+                  )),
+              Container(
+                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
+                  child: RaisedButton(
+                    onPressed: () => this.verifyAnswer(data.data.last.options[2]),
+                    child: Text(
+                      // ### alternativa C ###
+                      data.data.last.options[2]['texto'],
+                      style: TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.green[400],
+                          fontFamily: 'Slackey'),
+                    ),
+                    color: Colors.brown,
+                  )),
+              Container(
+                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
+                  child: RaisedButton(
                     onPressed: () => Navigator.pop(context),
-                    child: Text(
-                      "Opção A",
-                      style: TextStyle(
-                          fontSize: 30.0,
-                          color: Colors.green[400],
-                          fontFamily: 'Slackey'),
-                    ),
-                    color: Colors.brown,
-                  )),
-              Container(
-                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      "Opção B",
-                      style: TextStyle(
-                          fontSize: 30.0,
-                          color: Colors.green[400],
-                          fontFamily: 'Slackey'),
-                    ),
-                    color: Colors.brown,
-                  )),
-              Container(
-                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      "Opção C",
-                      style: TextStyle(
-                          fontSize: 30.0,
-                          color: Colors.green[400],
-                          fontFamily: 'Slackey'),
-                    ),
-                    color: Colors.brown,
-                  )),
-              Container(
-                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      "Opção D",
-                      style: TextStyle(
-                          fontSize: 30.0,
-                          color: Colors.green[400],
-                          fontFamily: 'Slackey'),
-                    ),
-                    color: Colors.brown,
-                  )),
-              Container(
-                  padding: EdgeInsets.fromLTRB(28.0, 0.0, 28.0, 0.0),
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
                     child: Text(
                       "Menu inicial",
                       style: TextStyle(
@@ -148,6 +134,8 @@ class QuizState extends State<Quiz> {
                   )),
             ],
           );
+              } else {
+                return CircularProgressIndicator();
               }
             },
           )

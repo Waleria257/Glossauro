@@ -24,7 +24,7 @@ class QuestionRepositoryFirebase extends QuestionRepository {
           .listen((data) {
         data.documents.forEach((question) {
           final doc = question.data;
-          _cache.add(Question(doc["qId"], doc["enunciado"]));
+          _cache.add(Question(doc["qId"], doc["enunciado"], doc["alternativas"]));
         });
         _loadedData.add(_cache);
       });
