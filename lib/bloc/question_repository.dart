@@ -1,41 +1,57 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/semantics.dart';
 
 import 'model.dart';
 
 abstract class QuestionRepository {
-  Stream<List<Question>> questions();
+  Stream<Question> nextQuestion();
+  Stream<bool> gameEnd();
+
+  Future<void> init();
 
   void refresh();
   void dispose();
 }
 
 class QuestionRepositoryFirebase extends QuestionRepository {
-  final _loadedData = StreamController<List<Question>>();
+  final _loadedData = StreamController<Question>();
   final _cache = List<Question>();
+  final _gameEnd = StreamController<bool>();
+
+  @override
+  Future<void> init() async {
+    final query = await Firestore.instance
+        .collection('perguntas')
+        .orderBy('qId')
+        .limit(3)
+        .getDocuments();
+
+    query.documents.forEach((question) {
+      final doc = question.data;
+      _cache.add(Question(doc["qId"], doc["enunciado"], doc["alternativas"]));
+    });
+  }
 
   @override
   void refresh() {
-    if (Firestore.instance != null) {
-      Firestore.instance
-          .collection('perguntas')
-          .where('qId', isEqualTo: 'i8uPJVW7KNoZvY8WbW3f')
-          .snapshots()
-          .listen((data) {
-        data.documents.forEach((question) {
-          final doc = question.data;
-          _cache.add(Question(doc["qId"], doc["enunciado"], doc["alternativas"]));
-        });
-        _loadedData.add(_cache);
-      });
+
+    if (_cache.length == 0) {
+      _gameEnd.add(true);
+    } else {
+      _loadedData.add(_cache.removeLast());
     }
   }
 
   @override
   void dispose() {
     _loadedData.close();
+    _gameEnd.close();
   }
 
   @override
-  Stream<List<Question>> questions() => _loadedData.stream;
+  Stream<Question> nextQuestion() => _loadedData.stream;
+
+  @override
+  Stream<bool> gameEnd() => _gameEnd.stream;
 }

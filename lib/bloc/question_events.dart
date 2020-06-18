@@ -5,6 +5,8 @@ abstract class QuestionEvents {}
 class NewQuestionEvent extends QuestionEvents {}
 
 class HasDataEvent extends QuestionEvents {
-  final List<Question> data;
+  final Question data;
   HasDataEvent(this.data);
 }
+
+class GameEndedEvent extends QuestionEvents {}

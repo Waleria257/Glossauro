@@ -16,6 +16,7 @@ class QuizState extends State<Quiz> {
   void initState() {
     super.initState();
     bloc = BlocProvider.of(context);
+    bloc.init();
   }
 
   @override
@@ -24,9 +25,12 @@ class QuizState extends State<Quiz> {
     super.dispose();
   }
 
-  void verifyAnswer(Object alternative) {
-    bloc.add(NewQuestionEvent());
-    print("sucesso");
+  void verifyAnswer(Map alternative) {
+    if (alternative['verdadeiro']){
+      bloc.add(NewQuestionEvent());
+    } else {
+
+    }
   }
 
   @override
@@ -68,7 +72,7 @@ class QuizState extends State<Quiz> {
                 padding: EdgeInsets.fromLTRB(10.0, 150.0, 10.0, 150.0),
                 child: Text(
                   // ### enunciado ###
-                  data.data.last.body,
+                  data.data.body,
                   style: TextStyle(
                       fontSize: 25.0,
                       color: Colors.white,
@@ -80,10 +84,10 @@ class QuizState extends State<Quiz> {
               Container(
                   padding: EdgeInsets.fromLTRB(28.0, 10.0, 28.0, 0.0),
                   child: RaisedButton(
-                    onPressed: () => this.verifyAnswer(data.data.last.options[0]),
+                    onPressed: () => this.verifyAnswer(data.data.options[0]),
                     child: Text(
                       // ### alternativa A ###
-                      data.data.last.options[0]['texto'],
+                      data.data.options[0]['texto'],
                       style: TextStyle(
                           fontSize: 30.0,
                           color: Colors.green[400],
@@ -97,10 +101,10 @@ class QuizState extends State<Quiz> {
               Container(
                   padding: EdgeInsets.fromLTRB(28.0, 10.0, 28.0, 0.0),
                   child: RaisedButton(
-                    onPressed: () => this.verifyAnswer(data.data.last.options[1]),
+                    onPressed: () => this.verifyAnswer(data.data.options[1]),
                     child: Text(
                       // ### alternativa B ###
-                      data.data.last.options[1]['texto'],
+                      data.data.options[1]['texto'],
                       style: TextStyle(
                           fontSize: 30.0,
                           color: Colors.green[400],
@@ -114,10 +118,10 @@ class QuizState extends State<Quiz> {
               Container(
                   padding: EdgeInsets.fromLTRB(28.0, 10.0, 28.0, 0.0),
                   child: RaisedButton(
-                    onPressed: () => this.verifyAnswer(data.data.last.options[2]),
+                    onPressed: () => this.verifyAnswer(data.data.options[2]),
                     child: Text(
                       // ### alternativa C ###
-                      data.data.last.options[2]['texto'],
+                      data.data.options[2]['texto'],
                       style: TextStyle(
                           fontSize: 30.0,
                           color: Colors.green[400],
@@ -131,6 +135,9 @@ class QuizState extends State<Quiz> {
              
             ],
           );
+              } else if (data is QuestionsEndedState) {
+                print('Questões acabaram');
+                dispose();
               } else {
                 return CircularProgressIndicator();
               }

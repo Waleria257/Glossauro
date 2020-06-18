@@ -4,10 +4,16 @@ import 'package:layout_glossauro/bloc/question_repository.dart';
 import 'package:layout_glossauro/bloc/question_state.dart';
 
 class QuestionBloc extends Bloc<QuestionEvents, QuestionState> {
-  final QuestionRepository repository;
+  QuestionRepository repository;
 
   QuestionBloc(this.repository) {
-    repository.questions().listen((data) => add(HasDataEvent(data)));
+    repository.nextQuestion().listen((data) => add(HasDataEvent(data)));
+    repository.gameEnd().listen((end) => add(GameEndedEvent()));
+  }
+
+  Future<void> init() async {
+    await repository.init();
+    repository.refresh();
   }
 
   @override
@@ -26,6 +32,8 @@ class QuestionBloc extends Bloc<QuestionEvents, QuestionState> {
       repository.refresh();
     } else if (event is HasDataEvent) {
       yield QuestionHasDataState(event.data);
+    } else if (event is GameEndedEvent) {
+      yield QuestionsEndedState();
     }
   }
 

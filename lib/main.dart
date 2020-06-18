@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
                             context,
                             MaterialPageRoute(builder: (context) {
                               return RepositoryProvider<QuestionRepository> (
-                                create: (context) => QuestionRepositoryFirebase()..refresh(),
+                                create: (context) => QuestionRepositoryFirebase(),
                                 child: BlocProvider(
                                   create: (context) => QuestionBloc(RepositoryProvider.of(context)),
                                   child: Quiz(),
