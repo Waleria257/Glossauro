@@ -1,9 +1,12 @@
-p<p align="center"> ![tema](https://github.com/Waleria257/Glossauro/blob/master/tema.PNG)
+<p align="center"> ![Tema](https://github.com/Waleria257/Glossauro/blob/master/tema.PNG)
 
 
 
-##  <p align="center">Umjogo de perguntas sobre dinossauro. ##
-![gif dino](https://github.com/Waleria257/Glossauro/blob/master/08605a2cf4cce0f80b644241b5224bc8.gif)
+##  <p align="center">Um jogo de perguntas sobre dinossauro
+  </p>
+  <p align="center"> ![gif dino](https://github.com/Waleria257/Glossauro/blob/master/08605a2cf4cce0f80b644241b5224bc8.gif)
+  </p>
+  
 ### 💻 Projeto
 Um projeto da disciplina DESENVOLVIMENTO PARA DISPOSITIVOS MÓVEIS da Universidade São Francisco (USF) com o professor <a href="https://github.com/matiasfilho81/">Matias</a> que tem como objetivo desenvolver um aplicativo mobile de questões com o tema dinossauro.
 ### 🚀 Tecnologia
