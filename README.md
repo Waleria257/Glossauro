@@ -1,6 +1,7 @@
-# <p align="center"> ![Tema](https://github.com/Waleria257/Glossauro/blob/master/tema.PNG)
-
+<p align="center"> 
+.<img src="https://github.com/Waleria257/Glossauro/blob/master/tema.PNG" width="500" >
 </p>
+
 
 ## <p align="center"> Um jogo de perguntas sobre ***DINOSSAURO***
 
