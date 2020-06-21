@@ -2,7 +2,7 @@
 
 </p>
 
-## <p align="center"> Um jogo de perguntas sobre ##DINOSSAURO!
+## <p align="center"> Um jogo de perguntas sobre **DINOSSAURO**!
 
 # # ![Dinossauro](https://github.com/Waleria257/Glossauro/blob/master/08605a2cf4cce0f80b644241b5224bc8.gif)
   
