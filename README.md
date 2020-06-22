@@ -15,10 +15,9 @@
 Um projeto da disciplina DESENVOLVIMENTO PARA DISPOSITIVOS MÓVEIS da Universidade São Francisco (USF) com o professor <a href="https://github.com/matiasfilho81/">Matias</a> que tem como objetivo desenvolver um aplicativo mobile de questões com o tema dinossauro.
 </p >
 
-### 📰 Conteúdo grátis
-
-
-
+###  📰 Venha aprender mais sobre os dinos no nosso instagram abaixo
+![logo](https://github.com/Waleria257/Glossauro/blob/master/1497553304-104_84834.png) 
+<a href="https://www.instagram.com/glossauro/"> Glossauro</a>
 
 ### 🚀 Tecnologia
 O projeto foi desenvolvido com as seguintes tecnologias:<br/>
