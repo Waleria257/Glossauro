@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 class About extends StatelessWidget {
+   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +22,8 @@ class About extends StatelessWidget {
               fit: BoxFit.cover,
               height: 1000.0,
             ),
-          ListView(
-            
+          Center(child:Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               GestureDetector(
                 child:Container(
@@ -30,30 +32,35 @@ class About extends StatelessWidget {
                   "images/logo3.png",
                   height: 200.0,
                   ),
-              ),
+                ),
                 onTap: (){
                   _launchURL2();
                 },
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-                child: 
+                  padding: EdgeInsets.all(20.0),
+                  height: 290,
+                  width: 400,
+                  
+
+                child:
                   Text(
                     "Esse aplicativo foi desenvolvido por alunos do curso de Engenharia de Computação da USF Itatiba sob a orientação do professor José Matias Lemes filho com o intuito de introduzir tecnologias de mercado como: Flutter, Firebase e o sistema de controle de versões GIT",
                     style: TextStyle(
-                      fontSize: 25.0,
+                      fontSize: 23.0,
                       color: Colors.white,
                       fontFamily: 'LuckiestGuy'
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    
+
+
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(60.0),
+                  borderRadius: BorderRadius.circular(35.0),
                   border: Border.all(color: Colors.brown),
                   color: Colors.brown,
                     ),
-                
+
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(65.0, 10.0, 65.0, 0.0),
@@ -70,10 +77,10 @@ class About extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)
                       ),
-          
+
               )
             ),
-              
+
               Container(
                 padding: EdgeInsets.fromLTRB(28.0, 5.5, 28.0, 0.0),
                 child: RaisedButton(
@@ -91,18 +98,19 @@ class About extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)
                       ),
-          
+
               )
             ),
-            
+
           ]
-        )
+        ) )
+          
 
       ]
-      
-      ) 
-      
-     
+
+      )
+
+
     );
   }
 }
@@ -123,3 +131,4 @@ _launchURL2() async {
     throw 'Could not launch $url2';
   }
 }
+

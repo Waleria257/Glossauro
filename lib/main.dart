@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/about.dart';
 import 'screens/quiz.dart';
 import 'screens/score.dart';
-import 'screens/result.dart';
-
+import 'util/size_config.dart';
 import 'bloc/question_repository.dart';
 import 'bloc/question_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,11 +17,20 @@ void main() {
 }
 
 class Home extends StatefulWidget {
-  @override
+   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+    
+  double setWidth(double value) {
+    return value * AppSize.heightPercentage(MediaQuery.of(context).size.height);
+  }
+
+  double setHeight(double value) {
+    return value * AppSize.widthPercentage(MediaQuery.of(context).size.width);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +38,7 @@ class _HomeState extends State<Home> {
             title: Text("GLOSSAURO",
                 style: TextStyle(
                     color: Colors.green[400],
-                    fontSize: 35.0,
+                    fontSize: setWidth(35.0),
                     fontFamily: 'Slackey')),
             centerTitle: true,
             backgroundColor: Colors.brown),
@@ -39,20 +47,20 @@ class _HomeState extends State<Home> {
             Image.asset(
               "images/Dino1.jpg",
               fit: BoxFit.cover,
-              height: 1000.0,
+              height: setHeight(1000.0),
             ),
             ListView(
               padding: const EdgeInsets.all(8),
               children: <Widget>[
-              Container(
+              Container( 
                 child:
                   Image.asset(
                   "images/DinoMenu.png",
-                  height: 200.0,
+                  height: setHeight(200.0),
                   ),
               ), 
                 Container(
-                    padding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0.0),
+                    padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0), setWidth(20.0), setWidth(0.0)),
                     child: RaisedButton(
                       onPressed: () {
                         Navigator.push(
@@ -72,7 +80,7 @@ class _HomeState extends State<Home> {
                       child: Text(
                         "Quiz",
                         style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: setWidth(30.0),
                             color: Colors.green[400],
                             fontFamily: 'Slackey'),
                       ),
@@ -83,7 +91,7 @@ class _HomeState extends State<Home> {
                     ),
                 ),
                 Container(
-                    padding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0.0),
+                    padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0), setWidth(20.0), setWidth(0.0)),
                     child: RaisedButton(
                       onPressed: () {
                         Navigator.push(
@@ -93,7 +101,7 @@ class _HomeState extends State<Home> {
                       child: Text(
                         "Pontuação",
                         style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: setWidth(30.0),
                             color: Colors.green[400],
                             fontFamily: 'Slackey'),
                       ),
@@ -103,7 +111,7 @@ class _HomeState extends State<Home> {
                       ),
                     )),
                 Container(
-                    padding: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 0.0),
+                    padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0), setWidth(20.0), setWidth(0.0)),
                     child: RaisedButton(
                       onPressed: () {
                         Navigator.push(
@@ -128,37 +136,10 @@ class _HomeState extends State<Home> {
               ],
             )
           ],
-        ));
+        )
+    );
   }
 }
 
 
-class AppSize {
-// full screen width and height
-static double heightSize;
-static double widthSize;
 
-static double heightPercentage;
-static double widthPercentage;
-
-static const double xdHeightSize = 667.0;
-static const double xdWidhtSize = 375.0;
-
-static void setHeightSize(double size) {
-heightSize = size;
-heightPercentage = heightSize / xdHeightSize;
-}
-
-static void setWidthSize(double size) {
-widthSize = size;
-widthPercentage = widthSize / xdWidhtSize;
-}
-}
-
-double setWidth(double value) {
-return value * AppSize.widthPercentage;
-}
-
-double setHeight(double value) {
-return value * AppSize.heightPercentage;
-}
