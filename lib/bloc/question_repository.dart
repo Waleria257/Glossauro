@@ -8,7 +8,7 @@ abstract class QuestionRepository {
   Stream<Question> nextQuestion();
   Stream<bool> gameEnd();
 
-  Future<void> init();
+  Future<int> init();
 
   void refresh();
   void dispose();
@@ -20,7 +20,7 @@ class QuestionRepositoryFirebase extends QuestionRepository {
   final _gameEnd = StreamController<bool>();
 
   @override
-  Future<void> init() async {
+  Future<int> init() async {
     final query = await Firestore.instance
         .collection('perguntas')
         .orderBy('qId')
@@ -31,6 +31,8 @@ class QuestionRepositoryFirebase extends QuestionRepository {
       final doc = question.data;
       _cache.add(Question(doc["qId"], doc["enunciado"], doc["alternativas"]));
     });
+
+    return _cache.length;
   }
 
   @override

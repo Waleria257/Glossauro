@@ -7,22 +7,32 @@ import 'bloc/question_repository.dart';
 import 'bloc/question_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 void main() {
   runApp(new MaterialApp(
-  home: Home(), 
-  debugShowCheckedModeBanner: false,
-));
-  
+    initialRoute: '/',
+    routes: {
+      '/': (context) => Home(),
+      '/quiz': (context) {
+        return RepositoryProvider<QuestionRepository>(
+            create: (context) => QuestionRepositoryFirebase(),
+            child: BlocProvider(
+              create: (context) => QuestionBloc(RepositoryProvider.of(context)),
+              child: Quiz(),
+            ));
+      },
+      '/score': (context) => Score(),
+      '/about': (context) => About()
+    },
+    debugShowCheckedModeBanner: false,
+  ));
 }
 
 class Home extends StatefulWidget {
-   @override
+  @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-    
   double setWidth(double value) {
     return value * AppSize.heightPercentage(MediaQuery.of(context).size.height);
   }
@@ -52,52 +62,34 @@ class _HomeState extends State<Home> {
             ListView(
               padding: const EdgeInsets.all(8),
               children: <Widget>[
-              Container( 
-                child:
-                  Image.asset(
-                  "images/DinoMenu.png",
-                  height: setHeight(200.0),
-                  ),
-              ), 
                 Container(
-                    padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0), setWidth(20.0), setWidth(0.0)),
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return RepositoryProvider<QuestionRepository> (
-                                create: (context) => QuestionRepositoryFirebase(),
-                                child: BlocProvider(
-                                  create: (context) => QuestionBloc(RepositoryProvider.of(context)),
-                                  child: Quiz(),
-                                )
-                              );
-                            }
-                            )
-                            );
-                        },
-                      child: Text(
-                        "Quiz",
-                        style: TextStyle(
-                            fontSize: setWidth(30.0),
-                            color: Colors.green[400],
-                            fontFamily: 'Slackey'),
-                      ),
-                      color: Colors.brown,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                    ),
+                  child: Image.asset(
+                    "images/DinoMenu.png",
+                    height: setHeight(200.0),
+                  ),
                 ),
                 Container(
-                    padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0), setWidth(20.0), setWidth(0.0)),
+                  padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0),
+                      setWidth(20.0), setWidth(0.0)),
+                  child: RaisedButton(
+                    onPressed: () => Navigator.pushNamed(context, '/quiz'),
+                    child: Text(
+                      "Quiz",
+                      style: TextStyle(
+                          fontSize: setWidth(30.0),
+                          color: Colors.green[400],
+                          fontFamily: 'Slackey'),
+                    ),
+                    color: Colors.brown,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                ),
+                Container(
+                    padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0),
+                        setWidth(20.0), setWidth(0.0)),
                     child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Score()),);
-                        },
+                      onPressed: () => Navigator.pushNamed(context, '/score'),
                       child: Text(
                         "Pontuação",
                         style: TextStyle(
@@ -107,18 +99,13 @@ class _HomeState extends State<Home> {
                       ),
                       color: Colors.brown,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)
-                      ),
+                          borderRadius: BorderRadius.circular(20)),
                     )),
                 Container(
-                    padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0), setWidth(20.0), setWidth(0.0)),
+                    padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0),
+                        setWidth(20.0), setWidth(0.0)),
                     child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => About()),);
-                        },
-                        
+                      onPressed: () => Navigator.pushNamed(context, '/about'),
                       child: Text(
                         "Sobre",
                         style: TextStyle(
@@ -128,18 +115,11 @@ class _HomeState extends State<Home> {
                       ),
                       color: Colors.brown,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                    )
-                ),
-               
+                          borderRadius: BorderRadius.circular(20)),
+                    )),
               ],
             )
           ],
-        )
-    );
+        ));
   }
 }
-
-
-

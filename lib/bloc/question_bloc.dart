@@ -11,9 +11,11 @@ class QuestionBloc extends Bloc<QuestionEvents, QuestionState> {
     repository.gameEnd().listen((end) => add(GameEndedEvent()));
   }
 
-  Future<void> init() async {
-    await repository.init();
+  Future<int> init() async {
+    int questions = await repository.init();
     repository.refresh();
+    
+    return questions;
   }
 
   @override
@@ -38,8 +40,8 @@ class QuestionBloc extends Bloc<QuestionEvents, QuestionState> {
   }
 
   @override
-  Future<Function> close() {
+  Future<void> close() {
     repository.dispose();
-    return super.close();
+    super.close();
   }
 }
