@@ -72,7 +72,7 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.fromLTRB(setWidth(20.0), setWidth(50.0),
                       setWidth(20.0), setWidth(0.0)),
                   child: RaisedButton(
-                    onPressed: () => Navigator.pushNamed(context, '/quiz'),
+                    onPressed: () => _navigateAndDisplayResult(context),
                     child: Text(
                       "Quiz",
                       style: TextStyle(
@@ -121,5 +121,10 @@ class _HomeState extends State<Home> {
             )
           ],
         ));
+  }
+
+  _navigateAndDisplayResult(BuildContext context) async {
+    final result = await Navigator.pushNamed(context, '/quiz');
+    print("Você assertou " + result.toString() + "% das questões");
   }
 }

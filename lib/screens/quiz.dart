@@ -30,7 +30,7 @@ class QuizState extends State<Quiz> {
   @override
   void dispose() {
     this.bloc.close();
-    // super.dispose();
+    super.dispose();
   }
 
   void verifyAnswer(Map alternative) {
@@ -46,9 +46,7 @@ class QuizState extends State<Quiz> {
     } else {
 
       double percent = this.wrightAnwers / this.totalOfQuestions * 100;
-      print("Você assertou " + percent.toString() + "% das questões");
-      dispose();
-      Navigator.pop(context);
+      Navigator.pop(context, percent);
     }
   }
 
